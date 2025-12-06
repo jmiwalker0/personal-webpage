@@ -31,8 +31,11 @@ nav a {
   transition: color 0.3s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
   color: #005fa3;
+  outline: none;
+  text-decoration: underline;
 }
 
 /* Headings */
@@ -47,8 +50,6 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  border-bottom: 2px solid #e0e0e0;
-  padding-bottom: 5px;
 }
 
 h3 {
@@ -93,13 +94,19 @@ form textarea {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:hover,
+form textarea:hover {
+  border-color: #999;
 }
 
 form input:focus,
 form textarea:focus {
   border-color: #0078d4;
   outline: none;
+  box-shadow: 0 0 4px rgba(0, 120, 212, 0.4);
 }
 
 input[type="submit"],
@@ -117,4 +124,97 @@ form button {
 input[type="submit"]:hover,
 form button:hover {
   background-color: #005fa3;
+}
+
+input[type="submit"]:disabled,
+form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Profile Picture */
+.profile-pic {
+  width: 350px;          
+  height: 350px;
+  border-radius: 50%;
+  display: block;
+  float: right;          
+  margin: 0 0 20px 30px;  
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Certificates */
+.certificate {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.certificate-img {
+  width: 300px;      /* smaller fixed width */
+  max-width: 100%;   /* prevents overflow */
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* Portfolio Item */
+.portfolio-item {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Image Container */
+.img-container {
+  text-align: center;
+}
+
+/* Portfolio Image */
+.portfolio-img {
+  max-width: 100%;
+  width: 300px;
+  height: auto;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+/* Headings for Portfolio/Certificates */
+h2 {
+  color: #0078d4;
+  margin-bottom: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .profile-pic {
+    float: none;
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+  }
+
+  nav {
+    text-align: left;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .certificate-img,
+  .portfolio-img {
+    width: 200px;   /* smaller on mobile */
+  }
 }
